@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07162e">
+<meta name="description" content="LootStat — ветеран Aion 2 на Корее и Тайване, более 8 месяцев опыта игры. Полезные таблицы и гайды.">
+<title>LootStat — Aion 2</title>
+<style>
+:root{--gold:#f1d38a;--gold-light:#fff0c2;--blue:#8bcfff;--text:#f4f7ff;--muted:#c3d1e7;--panel:rgba(4,19,46,.91);--border:rgba(128,183,239,.55);--shadow:0 16px 45px #0009}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:22px}
+body{margin:0;min-height:100vh;color:var(--text);font:16px/1.55 Georgia,"Times New Roman",serif;background:#07162e}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(2,9,24,.08),rgba(2,10,25,.48) 65%,rgba(2,8,19,.82)),url("assets/background.webp") center top/cover no-repeat}
+
+a{color:inherit;text-decoration:none}
+a:hover{color:#fff}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.page{width:min(1500px,100%);margin:auto;padding:0 28px 38px}
+.masthead{position:relative;width:100%;margin:0 0 22px;padding:0;line-height:0}
+.masthead-banner{display:block;width:100%;overflow:hidden;border-radius:0 0 12px 12px;box-shadow:0 8px 28px #0008}
+.masthead-banner img{display:block;width:100%;height:auto;aspect-ratio:794/151;object-fit:cover}
+.banner-socials{position:absolute;right:2.7%;top:50%;transform:translateY(-50%);display:grid;grid-template-columns:repeat(4,1fr);width:19.5%;height:48%;gap:2.5%}
+.banner-socials a{display:block;border-radius:12px;min-width:0}
+.banner-socials a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.layout{display:grid;grid-template-columns:255px minmax(0,1fr);gap:22px;align-items:start}
+.sidebar,.panel{background:var(--panel);border:1px solid var(--border);border-radius:21px;box-shadow:var(--shadow);backdrop-filter:blur(10px);position:relative}
+.sidebar:before,.panel:before{content:"";position:absolute;inset:5px;border:1px solid #e9c97830;border-radius:16px;pointer-events:none}
+.sidebar{padding:18px 16px;position:sticky;top:16px}
+.side-title{font-size:1.25rem;font-weight:bold;color:var(--gold-light);padding:0 8px 13px;border-bottom:1px solid #6c9ddc55}
+.side-title:before{content:"✥";color:var(--gold);margin-right:10px}
+.nav{display:grid}
+.nav a{padding:11px 8px;border-bottom:1px solid #8bb7e522;color:#e1edff;font-weight:bold;display:flex;align-items:center;gap:12px;border-radius:7px}
+.nav a:last-child{border:0}
+.nav a:hover{background:#2b5c9870}
+.nav-icon{width:27px;text-align:center;font:23px/1 Arial;color:#8dccff;text-shadow:0 0 12px #39aaff}
+.content{min-width:0;display:grid;gap:20px}
+.panel{padding:23px 26px;overflow:hidden}
+.panel h1,.panel h2{margin:0 0 14px;color:var(--gold-light)}
+.panel h1{font-size:2rem}
+.panel h1:before,.panel h2:before{content:"✦";color:var(--gold);margin-right:13px}
+.panel h2{font-size:1.45rem}
+.welcome{min-height:158px;background:linear-gradient(90deg,rgba(4,22,53,.97),rgba(5,28,66,.82) 64%,rgba(5,25,59,.45));}
+.welcome p{margin:0;max-width:720px;color:#e2edff;font-size:1.08rem}
+.section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.section-note{color:#a9c5e8;font:13px Arial,sans-serif}
+.class-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.class-card{min-width:0;min-height:215px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 10px 12px;border:1px solid #739ed1a6;border-radius:15px;background:linear-gradient(145deg,rgba(12,39,79,.92),rgba(4,17,43,.96));box-shadow:inset 0 0 22px #4b8bd21a;transition:transform .22s,border-color .22s,box-shadow .22s}
+.class-card:nth-child(3n+2){background:linear-gradient(145deg,rgba(29,26,74,.92),rgba(5,17,46,.96));border-color:#9a91d7a6}
+.class-card:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 0 25px #55aaff55,inset 0 0 24px #8ccaff20}
+.class-main{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%}
+.crest{height:126px;width:100%;display:grid;place-items:center}
+.crest img{width:116px;height:116px;object-fit:contain;filter:drop-shadow(0 0 9px #8ecfff65) drop-shadow(0 0 2px #f4d58d55);transition:transform .22s,filter .22s}
+.class-card:hover .crest img{transform:scale(1.07);filter:drop-shadow(0 0 13px #a9dfff) drop-shadow(0 0 5px #f2d48a)}
+.class-name{font-size:1.2rem;font-weight:bold;color:#e9f3ff;text-align:center;letter-spacing:.02em}
+.class-links{display:flex;gap:9px;margin-top:9px;font:12px Arial,sans-serif}
+.class-links a{padding:5px 10px;border:1px solid #6e9dcc88;border-radius:7px;background:#173a68;color:#dceeff}
+.class-links a:hover{background:#28588f;border-color:var(--gold)}
+.class-links span{color:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.resource-card{padding:17px;border:1px solid #5478a8a8;border-radius:13px;background:#061a38df}
+.resource-card h3{margin:0 0 7px;color:#f5dfaa;font-size:1.08rem}
+.resource-card p{margin:0 0 13px;color:var(--muted);font:14px/1.5 Arial,sans-serif}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:8px;border:1px solid #6da8e8a6;background:#153968;color:#dff1ff;font:13px Arial,sans-serif}
+.pill:hover{background:#22518c}
+.video{display:flex;align-items:center;gap:14px;padding:15px;border:1px solid #6f9bd0;border-radius:13px;background:#0b2a54}
+.play{width:42px;height:42px;flex:0 0 42px;border-radius:50%;display:grid;place-items:center;background:#91d9ff;color:#082044;font:20px Arial}
+.video strong{display:block;color:#fff}
+.video small{color:#b8cce7;font:13px Arial}
+.rules{margin:16px 0 0;padding-left:25px;color:#dce8f8}
+.rules li{padding:7px 0}
+.example{margin-top:13px;padding:15px;border-left:3px solid var(--gold);background:#1b2e4c;border-radius:0 10px 10px 0;color:#d9e5f5}
+.footer{text-align:center;color:#a9c1df;font:13px Arial;margin:24px 0 0;text-shadow:0 1px 5px #000}
+.backtop{position:fixed;right:22px;bottom:20px;padding:10px 14px;border:1px solid #c5a65d;border-radius:30px;background:#102c54ed;color:#fff0c4;box-shadow:var(--shadow)}
+@media(max-width:1100px){.layout{grid-template-columns:220px minmax(0,1fr)}.class-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){
+ .page{padding:0 13px 30px}.masthead{margin-bottom:15px}
+ .masthead-banner{border-radius:0 0 9px 9px}
+ .banner-socials a{border-radius:7px}
+ .layout{grid-template-columns:1fr;gap:15px}.sidebar{position:static}.nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 8px}
+ .nav a{font-size:14px;padding:9px 5px}.content{gap:15px}.panel{padding:18px}
+ .class-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.class-card{min-height:185px}
+ .crest{height:108px}.crest img{width:100px;height:100px}.class-name{font-size:1.05rem}
+}
+@media(max-width:430px){
+ .masthead{margin-bottom:12px}.banner-socials{right:2.7%;width:19.5%;height:48%}
+ .cards{grid-template-columns:1fr}.welcome h1{font-size:1.6rem}
+ .class-card{min-height:166px;padding:11px 7px}.crest{height:95px}.crest img{width:88px;height:88px}.class-links{gap:5px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* Frame and welcome banner; content and links match the source document. */
+.page{width:min(1440px,100%);padding:0 24px 38px}
+.masthead{width:calc(100% + 48px);margin-left:-24px;margin-bottom:14px}
+.masthead-banner{border-radius:0;box-shadow:none}
+.masthead-banner img{width:100%;height:auto;aspect-ratio:794/151}
+.layout{grid-template-columns:clamp(138px,18vw,240px) minmax(0,1fr);gap:clamp(14px,1.7vw,24px)}
+.sidebar,.panel{border-radius:13px;border-color:#ae9a66;backdrop-filter:none;box-shadow:0 8px 26px #0006,inset 0 0 20px #276abb22}
+.sidebar:before,.panel:before{inset:3px;border-radius:10px;border-color:#75b7ff36}
+.sidebar{padding:13px 12px;background:linear-gradient(135deg,#092952eb,#03132ced)}
+.side-title{font-size:clamp(.85rem,1.5vw,1.2rem);padding:0 2px 10px}
+.nav a{font-size:clamp(.72rem,1.05vw,.95rem);gap:8px;padding:10px 2px}
+.nav-icon{flex:0 0 22px;width:22px;font-size:21px}
+.welcome{margin-top:10px;min-height:148px;padding:18px 24px 22px;isolation:isolate;overflow:visible;border-color:#efd390;background:linear-gradient(100deg,#061b3b,#10396d)}
+.welcome:after{content:"";position:absolute;inset:1px;z-index:-1;border-radius:11px;background-image:linear-gradient(90deg,#051a38 0%,#061c3b 58%,#092551b0 73%,#10366a0d 100%),url("assets/reference.webp");background-size:100% 100%,133.3334% 548.7805%;background-position:center,100% 45.1087%;background-repeat:no-repeat;pointer-events:none}
+.welcome:before{content:"✦";inset:auto;left:50%;bottom:-16px;width:36px;height:30px;display:grid;place-items:center;transform:translateX(-50%);border:0;border-radius:0;color:#ffe99a;font-size:30px;line-height:1;text-shadow:0 0 8px #ffd25d,0 0 18px #ffcf69;pointer-events:none}
+.welcome h1{font-size:clamp(1.4rem,2.5vw,2rem);line-height:1.15;font-weight:normal;color:#fff3d3;margin:0 0 9px;text-shadow:0 2px 5px #0008}
+.welcome h1:before{content:"✧";color:#ffe6a0;text-shadow:0 0 9px #ffd065;margin-right:12px}
+.welcome p{position:relative;max-width:73%;margin-left:34px;font:clamp(.8rem,1.12vw,1rem)/1.45 Arial,sans-serif;color:#edf4ff;text-shadow:0 1px 3px #031127}
+@media(max-width:1100px) and (min-width:761px){.panel{padding:18px}.welcome{padding:15px 16px 20px}.welcome p{max-width:78%;margin-left:29px}.class-grid{gap:12px}}
+@media(max-width:760px){
+ body:before{background-image:linear-gradient(180deg,#02091810,#020a1980 65%,#020813df),url("assets/background-mobile.webp")}
+ .page{padding:0 13px 30px}.masthead{width:calc(100% + 26px);margin-left:-13px;margin-bottom:13px}
+ .masthead-banner{border-radius:0}.layout{grid-template-columns:1fr;gap:15px}
+ .sidebar{padding:12px 14px}.side-title{font-size:1rem}.nav a{font-size:.875rem;padding:9px 5px}
+ .banner-socials{top:auto;bottom:5px;right:10px;transform:none;width:auto;height:38px;display:flex;gap:6px}
+ .banner-socials a{width:38px;border:1px solid #8dcaff80;border-radius:9px;background:#091b3be8;display:grid;place-items:center;box-shadow:0 2px 6px #0006}
+ .banner-socials a:after{content:attr(aria-label);font:9px Arial,sans-serif;color:#e7f2ff}
+ .welcome{margin-top:0;min-height:150px;padding:17px 18px 22px}.welcome h1{font-size:1.6rem}.welcome p{font-size:.9rem;max-width:90%;margin-left:0}
+ .welcome:after{background-image:linear-gradient(90deg,#051a38 0%,#061c3b 65%,#092551bb 85%,#10366a55),url("assets/reference.webp")}
+}
+@media(max-width:430px){.masthead{padding-bottom:38px}.banner-socials{left:13px;right:13px;justify-content:flex-end;bottom:0}.welcome p{max-width:100%}.welcome h1{font-size:1.45rem}}
+
+
+@media(max-width:760px){.section-heading{flex-wrap:wrap;gap:0}.section-note{display:block;margin:0 0 14px;font-size:12px}.class-links a{white-space:nowrap;padding:5px 7px}}
+
+/* Scalable brand and social navigation; no raster banner. */
+.masthead{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;min-height:146px;margin:20px 0 18px;padding:16px 24px;line-height:1.2;border:1px solid #87bfe34d;border-radius:24px;background:linear-gradient(105deg,#04152a,#0a2448 58%,#172341);box-shadow:0 14px 38px #020c224d,inset 0 1px #c2efff24}
+.masthead:after{content:"";position:absolute;left:28px;right:28px;bottom:0;height:1px;background:linear-gradient(90deg,transparent,#ead096b0,transparent);pointer-events:none}
+.brand{display:flex;align-items:center;gap:20px;min-width:0;color:#fff4d7}
+.brand-logo{display:block;flex:0 0 auto;width:112px;height:112px;filter:drop-shadow(0 4px 12px #16bfff33)}
+.brand-name{font-family:Georgia,"Times New Roman",serif;font-size:clamp(38px,4.6vw,66px);font-weight:normal;letter-spacing:-.045em;line-height:1.1;color:#fff6dc;text-shadow:0 2px 10px #0006}
+.banner-socials{position:static;display:flex;align-items:center;gap:12px;width:auto;height:auto;transform:none;flex:0 0 auto}
+.banner-socials a{position:relative;display:grid;place-items:center;width:52px;height:52px;min-width:52px;border:1px solid #88c7ff66;border-radius:14px;background:linear-gradient(145deg,#193455,#07192f);box-shadow:inset 0 1px #c5e9ff26,0 4px 12px #0003;transition:transform .2s,border-color .2s,background .2s}
+.banner-socials a:after{display:none;content:none}
+.banner-socials svg{display:block;width:27px;height:27px;overflow:visible}
+.banner-socials a[aria-label="Twitch"]{color:#be91ff}.banner-socials a[aria-label="YouTube"]{color:#ff414c}.banner-socials a[aria-label="Telegram"]{color:#69dcff}.banner-socials a[aria-label="Discord"]{color:#a6a7ff}
+.banner-socials a:hover{transform:translateY(-3px);border-color:#f1d38a;background:#1b385b}
+.banner-socials a:focus-visible{outline:2px solid #ffe49b;outline-offset:4px}
+.welcome{background:#061b3b}
+.welcome:after{inset:0;border-radius:12px;background-image:linear-gradient(90deg,#051a38 0%,#061c3b 55%,#092551c9 68%,#10366a24 100%),url("assets/reference.webp");background-size:100% 100%,143.8849% 750%;background-position:center,75.4098% 45.6410%}
+.welcome p{max-width:78%}
+@media(max-width:760px){.masthead{min-height:116px;padding:14px 18px;margin:13px 0 15px;gap:16px;border-radius:20px}.brand{gap:12px}.brand-logo{width:80px;height:80px}.brand-name{font-size:42px}.banner-socials{gap:8px}.banner-socials a{width:44px;height:44px;min-width:44px;border-radius:12px}.banner-socials svg{width:24px;height:24px}.welcome:after{background-image:linear-gradient(90deg,#051a38 0%,#061c3b 65%,#092551c7 85%,#10366a80),url("assets/reference.webp")}.welcome p{max-width:100%}}
+@media(max-width:580px){.masthead{flex-wrap:wrap;justify-content:center;padding:16px 18px 18px;gap:16px}.brand{justify-content:center;width:100%;gap:13px}.brand-logo{width:76px;height:76px}.brand-name{font-size:46px}.banner-socials{justify-content:center;width:100%;gap:14px}.banner-socials a{width:46px;height:46px;min-width:46px}.welcome h1{font-size:clamp(1.25rem,5.7vw,1.6rem)}}
+
+</style>
+<link rel="preload" as="image" href="assets/logo.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="page">
+<header class="masthead" id="top">
+  <a class="brand" href="#top" aria-label="LootStat — на главную">
+    <img class="brand-logo" src="assets/logo.svg" width="112" height="112" alt="Логотип LootStat" decoding="async" fetchpriority="high">
+    <span class="brand-name">LootStat</span>
+  </a>
+  <nav class="banner-socials" aria-label="Социальные сети LootStat">
+    <a href="https://www.twitch.tv/lootstat" target="_blank" rel="noopener noreferrer" aria-label="Twitch" title="Twitch"><svg viewBox="0 0 26 26" aria-hidden="true" focusable="false"><path d="M4 2 2 6v16h6v3l4-3h5l7-7V2z" fill="currentColor"/><path d="M7 5h14v9l-4 4h-5l-3 3v-3H7z" fill="#101c35"/><path d="M12 8v6m5-6v6" stroke="currentColor" stroke-width="2"/></svg></a>
+    <a href="https://www.youtube.com/@LootStatGAME" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 26 26" aria-hidden="true" focusable="false"><rect x="1" y="4" width="24" height="18" rx="6" fill="currentColor"/><path d="m11 9 7 4-7 4z" fill="#fff"/></svg></a>
+    <a href="https://t.me/LootStatMMO" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 26 26" aria-hidden="true" focusable="false"><path d="M2 12 24 3l-4 21-7-6-4 4 1-8 10-7-12 6z" fill="currentColor"/></svg></a>
+    <a href="https://discord.gg/vp3EzuzDu" target="_blank" rel="noopener noreferrer" aria-label="Discord" title="Discord"><svg viewBox="0 0 26 26" aria-hidden="true" focusable="false"><path d="M6 5 2 10 0 21l6 3 2-3q5 2 10 0l2 3 6-3-2-11-4-5-5 1h-4z" fill="currentColor"/><ellipse cx="8" cy="15" rx="2" ry="2.5" fill="#fff"/><ellipse cx="18" cy="15" rx="2" ry="2.5" fill="#fff"/></svg></a>
+  </nav>
+</header>
+<div class="layout">
+<aside class="sidebar" aria-label="Навигация">
+ <div class="side-title">Навигация</div>
+ <nav class="nav">
+  <a href="#classes"><span class="nav-icon">♜</span>Классы</a>
+  <a href="#tables"><span class="nav-icon">▦</span>Полезные таблицы</a>
+  <a href="#guides"><span class="nav-icon">◫</span>Гайды и советы</a>
+  <a href="#sites"><span class="nav-icon">⬡</span>Ресурсы</a>
+  <a href="#social"><span class="nav-icon">↗</span>Сообщество</a>
+ </nav>
+</aside>
+<main class="content">
+ <section class="panel welcome" id="welcome">
+  <h1>Добро пожаловать!</h1>
+  <p><strong>LootStat</strong> — ветеран Aion 2 на Корее и Тайване, более 8 месяцев опыта игры!<br>Здесь вы найдете полезные таблицы и гайды. Буду рад видеть вас на трансляциях и в социальных сетях!</p>
+ </section>
+ <section class="panel" id="classes">
+  <div class="section-heading"><h2>Все классы Aion 2</h2><span class="section-note">Выберите класс, чтобы открыть гайд</span></div>
+  <div class="class-grid">
+      <article class="class-card">
+        <a class="class-main" href="https://docs.google.com/spreadsheets/d/1RUXLxhqp6kidiOhEw0lhodKxyev5FWwnXgNnSCy0vE0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Гайд: Гладиатор">
+          <span class="crest"><img src="assets/class-1.webp" width="117" height="141" loading="lazy" decoding="async" alt="Эмблема класса Гладиатор"></span>
+          <span class="class-name">Гладиатор</span>
+        </a>
+        <div class="class-links">
+          <a href="https://docs.google.com/spreadsheets/d/1RUXLxhqp6kidiOhEw0lhodKxyev5FWwnXgNnSCy0vE0/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Гайд <span>↗</span></a>
+          <a href="https://shugo.gg/character/global/as-israphel/LootGlad" target="_blank" rel="noopener noreferrer">Профиль <span>↗</span></a>
+        </div>
+      </article>
+
+      <article class="class-card">
+        <a class="class-main" href="https://docs.google.com/spreadsheets/d/1VWMqkEojoc94ZwGLmPH9ln1-dgE7jTtnvFB3XUN-9G8/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Гайд: Страж">
+          <span class="crest"><img src="assets/class-2.webp" width="100" height="133" loading="lazy" decoding="async" alt="Эмблема класса Страж"></span>
+          <span class="class-name">Страж</span>
+        </a>
+        <div class="class-links">
+          <a href="https://docs.google.com/spreadsheets/d/1VWMqkEojoc94ZwGLmPH9ln1-dgE7jTtnvFB3XUN-9G8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Гайд <span>↗</span></a>
+          <a href="https://shugo.gg/character/global/as-israphel/LootStat" target="_blank" rel="noopener noreferrer">Профиль <span>↗</span></a>
+        </div>
+      </article>
+
+      <article class="class-card">
+        <a class="class-main" href="https://docs.google.com/spreadsheets/d/1hm5noCGkGMrtKUA39_zb0VHWnRWV7lRWwOYuhwz9oiY/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Гайд: Ассасин">
+          <span class="crest"><img src="assets/class-3.webp" width="124" height="134" loading="lazy" decoding="async" alt="Эмблема класса Ассасин"></span>
+          <span class="class-name">Ассасин</span>
+        </a>
+        <div class="class-links">
+          <a href="https://docs.google.com/spreadsheets/d/1hm5noCGkGMrtKUA39_zb0VHWnRWV7lRWwOYuhwz9oiY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Гайд <span>↗</span></a>
+          <a href="https://shugo.gg/character/global/as-israphel/LootAssassin" target="_blank" rel="noopener noreferrer">Профиль <span>↗</span></a>
+        </div>
+      </article>
+
+      <article class="class-card">
+        <a class="class-main" href="https://docs.google.com/spreadsheets/d/1clS5Y_NOK8_Tve-__W-9w8XqgtWGUZGFfFBI8vVXHxo/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Гайд: Лучник">
+          <span class="crest"><img src="assets/class-4.webp" width="136" height="132" loading="lazy" decoding="async" alt="Эмблема класса Лучник"></span>
+          <span class="class-name">Лучник</span>
+        </a>
+        <div class="class-links">
+          <a href="https://docs.google.com/spreadsheets/d/1clS5Y_NOK8_Tve-__W-9w8XqgtWGUZGFfFBI8vVXHxo/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Гайд <span>↗</span></a>
+          <a href="https://shugo.gg/character/global/as-israphel/LootRanger" target="_blank" rel="noopener noreferrer">Профиль <span>↗</span></a>
+        </div>
+      </article>
+
+      <article class="class-card">
+        <a class="class-main" href="https://docs.google.com/spreadsheets/d/17weXOCtzJUVhc7fmLWFpkBE71SGGrmGpmeSHrDYgzAM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Гайд: Сорка">
+          <span class="crest"><img src="assets/class-5.webp" width="124" height="132" loading="lazy" decoding="async" alt="Эмблема класса Сорка"></span>
+          <span class="class-name">Сорка</span>
+        </a>
+        <div class="class-links">
+          <a href="https://docs.google.com/spreadsheets/d/17weXOCtzJUVhc7fmLWFpkBE71SGGrmGpmeSHrDYgzAM/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Гайд <span>↗</span></a>
+          <a href="https://shugo.gg/character/global/as-israphel/LootSorc" target="_blank" rel="noopener noreferrer">Профиль <span>↗</span></a>
+        </div>
+      </article>
+
+      <article class="class-card">
+        <a class="class-main" href="https://docs.google.com/spreadsheets/d/1v0UbJYqrJzxJFeDdPhRi2pzmEyvU5k01fJ-XwodBc-0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Гайд: Заклинатель">
+          <span class="crest"><img src="assets/class-6.webp" width="123" height="142" loading="lazy" decoding="async" alt="Эмблема класса Заклинатель"></span>
+          <span class="class-name">Заклинатель</span>
+        </a>
+        <div class="class-links">
+          <a href="https://docs.google.com/spreadsheets/d/1v0UbJYqrJzxJFeDdPhRi2pzmEyvU5k01fJ-XwodBc-0/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Гайд <span>↗</span></a>
+          <a href="https://shugo.gg/character/global/as-israphel/LootSpirit" target="_blank" rel="noopener noreferrer">Профиль <span>↗</span></a>
+        </div>
+      </article>
+
+      <article class="class-card">
+        <a class="class-main" href="https://docs.google.com/spreadsheets/d/1Wd9B0AWalv1Nl88USXLoZFX8ryL8GDO8NPJB6Fg1ekg/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Гайд: Клерик">
+          <span class="crest"><img src="assets/class-7.webp" width="129" height="134" loading="lazy" decoding="async" alt="Эмблема класса Клерик"></span>
+          <span class="class-name">Клерик</span>
+        </a>
+        <div class="class-links">
+          <a href="https://docs.google.com/spreadsheets/d/1Wd9B0AWalv1Nl88USXLoZFX8ryL8GDO8NPJB6Fg1ekg/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Гайд <span>↗</span></a>
+          <a href="https://shugo.gg/character/global/as-israphel/LootCleric" target="_blank" rel="noopener noreferrer">Профиль <span>↗</span></a>
+        </div>
+      </article>
+
+      <article class="class-card">
+        <a class="class-main" href="https://docs.google.com/spreadsheets/d/1Ndxy6HGy_cavPuzo_3Mz9xtgdLsGR8qr3y1KA7iyOyY/edit?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Гайд: Чантер">
+          <span class="crest"><img src="assets/class-8.webp" width="110" height="134" loading="lazy" decoding="async" alt="Эмблема класса Чантер"></span>
+          <span class="class-name">Чантер</span>
+        </a>
+        <div class="class-links">
+          <a href="https://docs.google.com/spreadsheets/d/1Ndxy6HGy_cavPuzo_3Mz9xtgdLsGR8qr3y1KA7iyOyY/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Гайд <span>↗</span></a>
+          <a href="https://shugo.gg/character/global/as-israphel/LootChanter" target="_blank" rel="noopener noreferrer">Профиль <span>↗</span></a>
+        </div>
+      </article>
+  </div>
+ </section>
+ <section class="panel" id="tables">
+  <h2>Полезные таблицы</h2>
+  <div class="cards">
+   <article class="resource-card"><h3>Профиты с данжей</h3><p>Таблица расчётов и эффективности подземелий.</p><a class="pill" href="https://docs.google.com/spreadsheets/d/1s7ATcUtj5IYBjw2pFQMHByxQlEqu_923F3BJY36atwk/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Открыть таблицу ↗</a></article>
+   <article class="resource-card"><h3>Топ PvE статов на экипировке</h3><p>Сравнение характеристик экипировки.</p><a class="pill" href="https://docs.google.com/spreadsheets/d/1KzD8Pcp4enP25neWsg2XTjSsKGee75HSW148xBhRsZ4/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Открыть таблицу ↗</a></article>
+  </div>
+ </section>
+ <section class="panel" id="guides">
+  <h2>Гайды и советы</h2>
+  <a class="video" href="https://youtu.be/5lxn-cN0Ph8" target="_blank" rel="noopener noreferrer"><span class="play">▶</span><span><strong>Перенос статов и заточка экипировки</strong><small>Смотреть видео-гайд на YouTube ↗</small></span></a>
+  <h3 style="color:#f5dfa9;margin:20px 0 0">Важные нюансы переноса статов</h3>
+  <ol class="rules"><li>При переносе предмета с 4 статами в предмет с 3 статами (исключение — телескопы Кромеды) один случайный стат теряется.</li></ol>
+  <div class="example"><strong>Пример:</strong> при переносе 4 статов с оружия Аурунг в оружие Кромеды случайным образом перенесутся 3 стата. Один из статов пропадёт; какая именно строка исчезнет — случайно.</div>
+ </section>
+ <section class="panel" id="sites">
+  <h2>Полезные ресурсы</h2>
+  <div class="cards">
+   <article class="resource-card"><h3>DaevaOS — игровые таймеры</h3><p>Вспомогательный ресурс с игровыми таймерами.</p><a class="pill" href="https://daevaos.com/timers" target="_blank" rel="noopener noreferrer">Открыть DaevaOS ↗</a></article>
+   <article class="resource-card"><h3>LootStat на Shugo.gg</h3><p>Профиль персонажа и игровая статистика.</p><a class="pill" href="https://shugo.gg/character/global/as-israphel/LootStat" target="_blank" rel="noopener noreferrer">Открыть профиль ↗</a></article>
+  </div>
+ </section>
+ <section class="panel" id="social">
+  <h2>Сообщество LootStat</h2>
+  <div class="cards">
+   <article class="resource-card"><h3>Twitch</h3><p>Стримы и игровые трансляции.</p><a class="pill" href="https://www.twitch.tv/lootstat" target="_blank" rel="noopener noreferrer">Перейти на Twitch ↗</a></article>
+   <article class="resource-card"><h3>YouTube</h3><p>Видео-гайды и полезные материалы.</p><a class="pill" href="https://www.youtube.com/@LootStatGAME" target="_blank" rel="noopener noreferrer">Перейти на YouTube ↗</a></article>
+   <article class="resource-card"><h3>Telegram</h3><p>Новости и общение сообщества.</p><a class="pill" href="https://t.me/LootStatMMO" target="_blank" rel="noopener noreferrer">Перейти в Telegram ↗</a></article>
+   <article class="resource-card"><h3>Discord</h3><p>Общение и игровое сообщество.</p><a class="pill" href="https://discord.gg/vp3EzuzDu" target="_blank" rel="noopener noreferrer">Присоединиться ↗</a></article>
+  </div>
+ </section>
+</main>
+</div>
+<footer class="footer">LootStat · Сборник полезных материалов по Aion 2</footer>
+</div>
+<a class="backtop" href="#top">↑ Наверх</a>
+</body>
+</html>
